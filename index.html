@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -126,3 +127,133 @@
   <!-- Local JavaScript file -->
   <script src="./script.js"></script>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Simple Quiz</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="br1half">
+      <!------------------------- 
+        Header - Title & Time Countdown 
+      ------------------------->
+      <header class="p2 m2">
+        <h1>The Simple Quiz</h1>
+        <div class="timer">
+          <h4>Time left: <span>15</span></h4>
+        </div>
+      </header>
+      <!------------------------- 
+        Get started page - Instructions 
+      ------------------------->
+      <section class="get-started">
+        <div class="intructions br1half">
+          <h2>Click the button below to start the quiz.</h2>
+          <p class="p2">
+            You will have 15 seconds to complete each question. There will be a
+            total of 5 questions.
+          </p>
+          <h3 class="p2">Good luck!</h3>
+        </div>
+        <button id="start-btn" type="button" class="start-button p2 m2 br1half">
+          Get started
+        </button>
+      </section>
+      <!-------------------------
+        Main quiz body
+      ------------------------->
+      <section class="main-quiz">
+        <!-- Progress - Bar in percent & Display question count -->
+        <section class="progress-container m2 br1half">
+          <progress class="progress-bar p2" value="0" max="100"></progress>
+          <p>
+            Question <span class="current-question">0</span> of
+            <span class="total-questions">20</span>
+          </p>
+        </section>
+        <!-- Questions & Answers  -->
+        <section class="qa-container p2 m2">
+          <h2 id="question">What does HTML stands for?</h2>
+          <div class="option-buttons">
+            <button
+              data-index="0"
+              id="option-1"
+              type="button"
+              class="p2 br1half option"
+              onclick="optionClicked(this)"
+            >
+              ...
+            </button>
+            <button
+              data-index="1"
+              id="option-2"
+              type="button"
+              class="p2 br1half option"
+              onclick="optionClicked(this)"
+            >
+              ...
+            </button>
+            <button
+              data-index="2"
+              id="option-3"
+              type="button"
+              class="p2 br1half option"
+              onclick="optionClicked(this)"
+            >
+              ...
+            </button>
+            <button
+              data-index="3"
+              id="option-4"
+              type="button"
+              class="p2 br1half option"
+              onclick="optionClicked(this)"
+            >
+              ...
+            </button>
+          </div>
+        </section>
+        <!------------------------- 
+          Footer buttons 
+        ------------------------->
+        <footer class="p2 m2">
+          <button type="button" class="check-answer p2 br1half">
+            Check answer
+          </button>
+          <button type="button" class="next-question p2 br1half">
+            Next question
+          </button>
+          <button type="button" class="finish-quiz p2 br1half">
+            Finish Quiz
+          </button>
+          <button type="button" class="quit-quiz p2 br1half">Quit Quiz</button>
+        </footer>
+      </section>
+      <!------------------------- 
+          Score page
+      ------------------------->
+      <section class="final-score">
+        <div class="display-score br1half">
+          <h2>Your total correct answers:</h2>
+          <span class="my-score">0</span> out of
+          <span class="total-score">20</span>
+          <h3 class="p2">Well done!</h3>
+        </div>
+        <button id="restart-btn" type="button" class="start-button p2 br1half">
+          Restart Quiz
+        </button>
+        <button type="button" class="quit-quiz score-quit p2 br1half">
+          Quit Quiz
+        </button>
+      </section>
+    </main>
+  </body>
+  <!-- Local JavaScript file -->
+  <script src="./script.js"></script>
+</html>
+>>>>>>> 9b91150fa65e527bac65fedc372a4c22b9374cd6

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Google font API */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
@@ -199,3 +200,210 @@ footer > button {
 
 
 
+=======
+/* Google font API */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --background-image: url("./background-image.jpg");
+    --instructions: rgba(255, 255, 255, 0.1);
+    --line-color: rgba(255, 255, 255, 0.5);
+    --text-color: rgb(64, 64, 64);
+    --progress-bar: rgba(255,207,175,1);
+    --box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+
+    /* Check Button */
+    --check-button: linear-gradient(90deg, rgba(255,223,202,1) 0%, rgba(255,207,175,1) 52%, rgba(255,191,148,1) 100%);
+    --check-button-hover: linear-gradient(270deg, rgba(255,223,202,1) 0%, rgba(255,207,175,1) 52%, rgba(255,191,148,1) 100%);
+
+    /* Next Button */
+    --next-button: linear-gradient(90deg, rgba(255,236,210,1) 0%, rgba(255,216,162,1) 59%, rgba(255,198,119,1) 100%);
+    --next-button-hover: linear-gradient(270deg, rgba(255,236,210,1) 0%, rgba(255,216,162,1) 59%, rgba(255,198,119,1) 100%);
+
+    /* Quit button */
+    --quit-button:  linear-gradient(90deg, rgba(247,201,198,1) 0%, rgba(246,165,160,1) 52%, rgba(255,131,123,1) 100%);
+    --quit-button-hover: linear-gradient(270deg, rgba(247,201,198,1) 0%, rgba(246,165,160,1) 52%, rgba(255,131,123,1) 100%);
+}
+
+/* Common padding */
+.p2 {
+    padding: 2%;
+}
+
+/* Common margin */
+.m2 {
+    margin: 2%;
+}
+
+/* Common border radius */
+.br1half {
+    border-radius: 1.5rem;
+}
+
+/* Do not display timer initially */
+.timer {
+    display: none;
+}
+
+/* All text color */
+h1, h2, h3, h4, p, span {
+    color: var(--text-color)
+}
+
+
+/* Main app */
+main {
+    margin: 0 auto;
+    width: 85%;
+    background-image: var(--background-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: var(--box-shadow);
+}
+
+.main-quiz {
+    display: none;
+}
+
+/* Header section */
+header{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line-color);
+    align-items: center;
+}
+
+/* Get started section & Final score */
+.get-started, .final-score {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.get-started > *, .final-score > * {
+    text-align: center;
+    margin: 0 10%;
+}
+
+.intructions, .display-score {
+    background: var(--instructions);
+    margin-bottom: 5%;
+    padding: 4%;
+    backdrop-filter: blur(2px);
+}
+
+.start-button {
+    background: var(--check-button);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    border-style: none;
+    width: 60%;
+    margin-bottom: 5%;
+}
+
+
+.start-button:hover {
+    background: var(--check-button-hover);
+}
+
+/* Other Final score style */
+.final-score {
+    display: none;
+}
+
+.score-quit {
+    width: 60%;
+    margin: 2% auto;
+    border-style: none;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+}
+
+
+/* Progress section */
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2%;
+    box-shadow: var(--box-shadow);
+    border-style: none;
+}
+
+.progress-bar {
+    width: 70%;
+    accent-color: var(--progress-bar);
+}
+
+/* Questions */
+
+#option-1, #option-2, #option-3, #option-4{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 3% 0;
+    border-style: none;
+    cursor: pointer;
+    background: var(--line-color);
+    box-shadow: var(--box-shadow);
+    backdrop-filter: blur(2px);
+    text-align: left;
+}
+
+/* Footer Buttons */
+footer {
+    display: flex;
+    flex-direction: column;
+}
+
+footer > button {
+    width: 30%;
+    margin: 2% auto;
+    border-style: none;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+}
+
+.check-answer {
+    background: var(--check-button);
+    backdrop-filter: blur(2px);
+}
+
+.checkButtonGradient {
+    background: var(--check-button-hover);
+}
+
+.check-answer:hover {
+    background: var(--check-button-hover);
+}
+
+.next-question, .finish-quiz {
+    background: var(--next-button);
+    display: none;
+}
+
+.next-question:hover, .finish-quiz:hover {
+    background: var(--next-button-hover);
+    display: none;
+}
+
+.quit-quiz {
+    background: var(--quit-button);
+}
+
+.quit-quiz:hover {
+    background: var(--quit-button-hover);
+}
+
+
+
+>>>>>>> 9b91150fa65e527bac65fedc372a4c22b9374cd6
