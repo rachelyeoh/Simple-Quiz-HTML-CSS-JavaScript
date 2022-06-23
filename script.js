@@ -216,7 +216,7 @@ const nextQuestion = () => {
   mainQuiz.style.display="inline";
   // Remove the 'Times Up!' text
   timeUp.textContent = '';
-  // Set time left to 15
+  // Reset time left to 15
   timer.innerText = 15;
   // Hide the next question button and display check answer button
   nextButton.style.display="none";
@@ -261,7 +261,7 @@ const addScore = () => {
 };
 
 const restartQuiz = () => {
-  // Set score and current question to 0, time left to 15
+  // Reset score and current question to 0, time left to 15
   myScore.innerText = 0;
   currentQuestion.innerText = 0;
   timer.innerText = 15;

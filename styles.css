@@ -175,10 +175,6 @@ footer > button {
     backdrop-filter: blur(2px);
 }
 
-.checkButtonGradient {
-    background: var(--check-button-hover);
-}
-
 .check-answer:hover {
     background: var(--check-button-hover);
 }
