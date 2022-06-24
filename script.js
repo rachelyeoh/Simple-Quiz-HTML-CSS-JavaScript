@@ -4,10 +4,10 @@ const mainQuiz = document.querySelector(".main-quiz");
 const questionAnswers = document.querySelector(".qa-container");
 const finalScore = document.querySelector(".final-score");
 const timerContainer = document.querySelector(".timer");
-const progressBar = document.querySelector(".progress-bar")
+const progressBar = document.querySelector(".progress-bar");
 /* ----- Buttons ----- */
 const startButton = document.querySelector("#start-btn");
-const optionButtons = document.querySelectorAll(".option")
+const optionButtons = document.querySelectorAll(".option");
 const checkButton = document.querySelector(".check-answer");
 const nextButton = document.querySelector(".next-question");
 const finishButton = document.querySelector(".finish-quiz");
@@ -16,9 +16,9 @@ const quitButton = document.querySelectorAll(".quit-quiz");
 /* ----- Variables to manipulate innerText ----- */
 let myScore = document.querySelector(".my-score");
 let totalScore = document.querySelector(".total-score");
-let scoreText = document.querySelector(".display-score h3")
+let scoreText = document.querySelector(".display-score h3");
 let currentQuestion = document.querySelector(".current-question")
-let totalQuestions = document.querySelector(".total-questions")
+let totalQuestions = document.querySelector(".total-questions");
 let timer = document.querySelector(".timer span");
 /* ----- Initial declaration ----- */
 let displayQuiz;
@@ -62,19 +62,19 @@ const quizes = [
 
 /* ----- Functions to manipulate styles -----*/
 const optionClicked = (button) => {
-  // Set the selectedButton to be the option button that is clicked
-  selectedButton = button
+  // Set the selectedButton to the option button that is clicked
+  selectedButton = button;
   // Ensure all option buttons' background color are removed before setting new one below
   removeBackgroundStyle();
-  // When any option button is clicked, change button to this color:
-  button.style.backgroundColor = "rgba(240, 238, 138, 0.29)";
-  // When any option is clicked, enable the check answer button
+  // When any option button is clicked, chnage button to this color:
+  button.style.backgroundColor = "rgba(240,238,138,0.29)";
+  // When any option is clicked, enable the check answr button
   enableButton(checkButton)
 };
 
 const disableButton = (button) => {
   // Make button disabled by adding a disabled attribute to the button
-  button.setAttribute("disabled", "");
+  button.setAttribute("disabled", "")
   // Set cursor style back to default
   button.style.cursor = "auto";
 };
@@ -84,14 +84,14 @@ const enableButton = (button) => {
   button.removeAttribute("disabled", "");
   // Set cursor style to pointer
   button.style.cursor = "pointer";
-};
+}
 
 const removeBackgroundStyle = () => {
   // Remove background color of every option button
   optionButtons.forEach(eachButton => {
     eachButton.style.backgroundColor = "";
   });
-}; 
+};
 
 /* ----- Functions to set Timer -----*/
 const insertTimerText = () => {
@@ -107,10 +107,9 @@ const insertTimerText = () => {
   timeUp.style.color = "rgba(255, 32, 32, 0.8)";
 };
 
-const timerCountdown= () => {
-  // Every 1000 milliseconds/1 second interval, execute this:
+const timerCountdown = () => {
+  // Every 1000 milliseconds/ 1 second interval, execute this:
   timerInterval = setInterval(() => {
-    
     // If the time left is more than 0 second, execute this:
     if(timer.textContent > 0) {
       // Time left should reduce by 1
@@ -122,12 +121,12 @@ const timerCountdown= () => {
         disableButton(eachButton);
         // Display the correct answer
         displayAnswer();
-        // Hide the check answer button and display next question button
-        checkButton.style.display="none";
-        nextButton.style.display="inline";
+        // Hide the check answer button and display the next question button
+        checkButton.style.display = "none";
+        nextButton.style.display = "inline";
       });
-      console.log(selectedButton)
-      // If nothing is selected after time is up execute this: 
+      
+      // If nothing is selected after time is up, execute this:
       if(selectedButton == undefined) {
         // If it is the last question, execute this:
         if(currentQuestion.textContent === totalQuestions.textContent) {
@@ -137,56 +136,57 @@ const timerCountdown= () => {
         } else {
           // Otherwise, if it's not the last question, display next question button
           nextButton.style.display="inline";
-        };
-      };
+        }
+      }
       insertTimerText();
       // Stop the timer
       clearInterval(timerInterval);
-  }}, 1000)   
-};
+    }
+  }, 1000)
+}
 
 /* ----- Function to update Progress Bar -----*/
 const updateProgressBar = () => {
-  // Progress bar 'value' is 1 less than current question because, eg: when you're on question 2, you have only completed 1 question. 
+  // Progress bar 'value' is 1 less than current question because, eg: when you're on question 2, you have only completed 1 question
   calculateProgress = ((currentQuestion.textContent - 1) / totalQuestions.textContent)*100;
   // Update the progress bar 'value' accordingly
-  progressBar.setAttribute("value", calculateProgress);
+  progressBar.setAttribute("value", calculateProgress)
 };
 
 /* ----- Logical process functions -----*/
 const startQuiz = () => {
   // Hide the get started button, and display timer
-  getStarted.style.display="none";
+  getStarted.style.display = "none";
   timerContainer.style.display = "inline";
   // Disable check answer button as nothing is selected
   disableButton(checkButton);
   // Set the total questions to be the quiz questions' length
   totalQuestions.innerText = quizes.length;
   // Display the main quiz container
-  mainQuiz.style.display="inline";
+  mainQuiz.style.display = "inline";
   // Start the countdown
   timerCountdown();
-  // Set question to be the first question in the quizes array
+  // Set question to be the first quesiton in the quizes array
   question.innerText = quizes[0].question;
   // Loop through each button and display the options text in correct order
-  for(i = 0; i < optionButtons.length; i++) {
-      optionButtons.item(i).innerText = quizes[0].options[i]
-  }
-  // Increase the currentQuestion from 0 to 1
+  for(i=0; i < optionButtons.length; i++) {
+    optionButtons.item(i).innerText = quizes[0].options[i]
+  };
+  // Increase the current question from 0 to 1
   currentQuestion.innerText++;
-};
+}
 
 const checkAnswer = () => {
   // If current question is the last question, execute this:
   if(currentQuestion.textContent >= quizes.length) {
-    // Hide next question and check answer button, and display finish quiz button
-    nextButton.style.display="none";
-    checkButton.style.display="none";
-    finishButton.style.display="inline";
+    // Hide next question and check answer button, and display finish quiz buttoin
+    nextButton.style.display = "none";
+    checkButton.style.display = "none";
+    finishButton.style.display = "inline";
   } else {
     // If not the last question, hide check answer button and display next button
-    checkButton.style.display="none";
-    nextButton.style.display="inline";
+    checkButton.style.display = "none";
+    nextButton.style.display = "inline";
   };
   // When an option is selected, change to this color:
   selectedButton.style.backgroundColor = "rgba(255, 0, 26, 0.3)"
@@ -199,28 +199,29 @@ const checkAnswer = () => {
   // Disable each option button
   optionButtons.forEach(eachButton => {
     disableButton(eachButton)
-  });
-};
+  })
+}
 
 const displayAnswer = () => {
   // Find out the correct answer button where it matches answer in quizes array
   correctAnswerButton = document.querySelector(`[data-index="${quizes[currentQuestion.textContent-1].answers}"]`)
-  // Find the correct answer button's index
-  correctButtonIndex = quizes[currentQuestion.textContent-1].answers
+  console.log(correctAnswerButton)
+  // Find the correctButtonIndex 
+  correctButtonIndex = quizes[currentQuestion.textContent - 1].answers
   // Change the correct answer button to this color
-  correctAnswerButton.style.backgroundColor = "rgba(40, 247, 40, 0.3)";
+  correctAnswerButton.style.backgroundColor = "rgba(40, 247, 40, 0.3";
 }
 
 const nextQuestion = () => {
   // Display the main quiz content
-  mainQuiz.style.display="inline";
+  mainQuiz.style.display = "inline";
   // Remove the 'Times Up!' text
   timeUp.textContent = '';
   // Reset time left to 15
   timer.innerText = 15;
   // Hide the next question button and display check answer button
-  nextButton.style.display="none";
-  checkButton.style.display="inline";
+  nextButton.style.display = "none";
+  checkButton.style.display = "inline";
   // Increase current question by 1 everytime
   currentQuestion.innerText++;
   // Disable check answer button
@@ -238,23 +239,23 @@ const nextQuestion = () => {
 };
 
 const addScore = () => {
-  // Find out the index of the selected button
+  // Find out index of the selected button
   selectedButtonIndex = selectedButton.getAttribute("data-index")
   // If the selected button is the correct answer, execute this:
   if(selectedButtonIndex == correctButtonIndex) {
     // Increase the score by 1 each time
     myScore.innerText++;
-    // Find out the score percentage according to score obtained
+    // Find out the score percentage according to the score obtained
     scorePercent = (myScore.textContent / totalQuestions.textContent)*100
   // If it's not the correct answer, then just leave it as it is
   } else {
     myScore;
-  };
+  }
   // If the score percentage is less than 50
-  if(scorePercent < 50) {
+  if(scorePercent < 50 || myScore.textContent == 0) {
     // Display text 'Better luck next time!'
-    scoreText.innerText = "Better luck next time!"
-  // If score percentage is more than or equal to 50, then show text below
+    scoreText.innerText = 'Better luck next time!'
+  // If score percentage is more than or equal to 50, then show the text below
   } else {
     scoreText.innerText = "Well done, you nailed it!"
   }
@@ -271,40 +272,40 @@ const restartQuiz = () => {
     removeBackgroundStyle(eachButton)
   });
   // Display check answer button, hide finish quiz button and final score content
-  checkButton.style.display="inline";
-  finishButton.style.display="none";
-  finalScore.style.display = 'none';
+  checkButton.style.display = "inline";
+  finishButton.style.display = "none";
+  finalScore.style.display = "none";
   // Enable check button, update progress bar accordingly and start quiz
   enableButton(checkButton);
   updateProgressBar();
   startQuiz();
-};
+}
 
 /* ----- Buttons event listeners -----*/
 // When get started button is clicked, execute this:
 startButton.addEventListener("click", () => {startQuiz()});
 
 // When check answer button is clicked, execute this:
-checkButton.addEventListener("click", () => {checkAnswer();});
+checkButton.addEventListener("click", () => {checkAnswer()});
 
 // When next question button is clicked, execute this:
 nextButton.addEventListener("click", () => {
-  // Go to next question, remove background color, and enable all options button
+  // Go to the next question, remove background color, and enable all options button
   nextQuestion();
   removeBackgroundStyle()
   optionButtons.forEach(eachButton => {
     enableButton(eachButton)
-  })
-});
+  });
+})
 
-// When finish quiz button is clicked, execute this:
+// When finish quiz button is clicked
 finishButton.addEventListener("click", () => {
   // Remove 'Time up!' text
   timeUp.textContent = '';
   // Display final score content, and hide main quiz content
   finalScore.style.display = 'flex';
-  mainQuiz.style.display="none";
-  // Total score should be the same as the total available questions
+  mainQuiz.style.display = "none";
+  // Total score should be the same as the total avaible questions
   totalScore.innerText = totalQuestions.textContent;
   // Stop timer
   clearInterval(timerInterval);
@@ -317,11 +318,11 @@ restartButton.addEventListener("click", () => {restartQuiz()});
 quitButton.forEach(button => {
   // When quit quiz button is clicked, execute this:
   button.addEventListener("click", () => {
-    // Display get started content, hide main quiz and final score content. 
-    getStarted.style.display="flex";
-    mainQuiz.style.display="none";
-    finalScore.style.display="none";
+    // Display get started content, hide main quiz and final score content.
+    getStarted.style.display  = "flex";
+    mainQuiz.style.display = "none";
+    finalScore.style.display = "none";
     // Refresh page
     location.reload();
-  });
-});
+  })
+})
