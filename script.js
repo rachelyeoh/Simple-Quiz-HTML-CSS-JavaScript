@@ -70,7 +70,7 @@ const disableButton = (button) => {
 
 const enableButton = (button) => {
   // Enable the button by removing the disabled attribute from the button
-  button.removeAttribute("disabled", "");
+  button.removeAttribute("disabled", ""); 
   // Set cursor style to pointer
   button.style.cursor = "pointer";
 };
