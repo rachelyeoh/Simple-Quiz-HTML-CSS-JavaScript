@@ -131,7 +131,7 @@ const timerCountdown = () => {
         if(currentQuestion.textContent === totalQuestions.textContent) {
           // Hide next question button and display finish quiz button
           nextButton.style.display ="none";
-          finishButton.style.display="inlnie";
+          finishButton.style.display="inline";
         } else {
           // otherwise, if it's not the last question, display next quesiton button
           nextButton.style.display = "inline";
